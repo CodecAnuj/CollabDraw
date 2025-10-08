@@ -1,135 +1,157 @@
-# Turborepo starter
+# 🎨 CollabDraw - Real-time Collaborative Drawing App
 
-This Turborepo starter is maintained by the Turborepo core team.
+A collaborative drawing application where users can create rooms, draw together in real-time, and chat with each other.
 
-## Using this example
+---
 
-Run the following command:
+## 🚀 Tech Stack
 
-```sh
-npx create-turbo@latest
-```
+### 🖥️ Frontend
 
-## What's inside?
+* Next.js 14
+* TypeScript
+* Tailwind CSS
+* Socket.io Client
 
-This Turborepo includes the following packages/apps:
+### ⚙️ Backend
 
-### Apps and Packages
+* Express.js
+* Socket.io
+* TypeScript
+* JWT Authentication
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### 🗄️ Database
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+* PostgreSQL
+* Prisma ORM
 
-### Utilities
+### 🧰 DevOps & Tools
 
-This Turborepo has some additional tools already setup for you:
+* Docker & Docker Compose
+* Turborepo (Monorepo Setup)
+* pnpm
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+---
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## 📦 Project Structure
 
 ```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+collabdraw/
+├── apps/
+│   ├── web/              # Next.js frontend
+│   └── api/              # Express backend
+├── packages/
+│   ├── database/         # Prisma schema
+│   ├── types/            # Shared TypeScript types
+│   └── config/           # Shared configs
+└── docker-compose.yml
 ```
 
-### Develop
+---
 
-To develop all apps and packages, run the following command:
+## 🛠️ Setup Instructions
 
-```
-cd my-turborepo
+### ✅ Prerequisites
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+* Node.js 18 or higher
+* Docker Desktop
+* pnpm (install globally)
 
 ```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+npm install -g pnpm
 ```
 
-### Remote Caching
+---
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+### ⚡ Installation
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+#### 1. Clone the repository
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
+git clone https://github.com/your-username/collabdraw.git
+cd collabdraw
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+#### 2. Install dependencies
 
 ```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
+pnpm install
 ```
 
-## Useful Links
+#### 3. Setup environment variables
 
-Learn more about the power of Turborepo:
+Create `.env` files in the required locations:
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+```
+# apps/api/.env
+# packages/database/.env
+```
+
+Example `.env` for backend:
+
+```
+DATABASE_URL=postgresql://user:password@localhost:5432/collabdraw
+JWT_SECRET=your_secret_key
+```
+
+---
+
+#### 4. Start PostgreSQL with Docker
+
+```
+docker-compose up -d postgres
+```
+
+---
+
+#### 5. Run database migrations
+
+```
+cd packages/database
+pnpm prisma migrate dev
+pnpm prisma generate
+```
+
+---
+
+#### 6. Start development servers
+
+**Backend:**
+
+```
+cd apps/api
+pnpm dev
+```
+
+**Frontend (coming soon):**
+
+```
+cd apps/web
+pnpm dev
+```
+
+---
+
+## 📝 API Endpoints
+
+### 🔐 Authentication
+
+| Method | Endpoint             | Description                  |
+| ------ | -------------------- | ---------------------------- |
+| POST   | `/api/auth/register` | Register new user            |
+| POST   | `/api/auth/login`    | User login                   |
+| GET    | `/api/auth/me`       | Get current user (protected) |
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 💡 Author
+
+**Anuj Tiwari**
+Full Stack Developer | MERN & DevOps Enthusiast
+🚀 Building scalable real-time web apps
